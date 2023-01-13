@@ -30,7 +30,7 @@
                         <li class="side-menu">
 							<a href="#">
 								<i class="fa fa-shopping-bag"></i>
-								<span class="badge">3</span>
+								<span class="badge">{{Session::has('cart') ? Session::get('cart')->totalQty : 0}}</span>
 								<p>My Cart</p>
 							</a>
 						</li>
@@ -43,24 +43,18 @@
                 <a href="#" class="close-side"><i class="fa fa-times"></i></a>
                 <li class="cart-box">
                     <ul class="cart-list">
-                        <li>
-                            <a href="#" class="photo"><img src="frontend/images/img-pro-01.jpg" class="cart-thumb" alt="" /></a>
-                            <h6><a href="#">Delica omtantur </a></h6>
-                            <p>1x - <span class="price">$80.00</span></p>
-                        </li>
-                        <li>
-                            <a href="#" class="photo"><img src="frontend/images/img-pro-02.jpg" class="cart-thumb" alt="" /></a>
-                            <h6><a href="#">Omnes ocurreret</a></h6>
-                            <p>1x - <span class="price">$60.00</span></p>
-                        </li>
-                        <li>
-                            <a href="#" class="photo"><img src="frontend/images/img-pro-03.jpg" class="cart-thumb" alt="" /></a>
-                            <h6><a href="#">Agam facilisis</a></h6>
-                            <p>1x - <span class="price">$40.00</span></p>
-                        </li>
+                        @if(Session::has('topCart'))
+                            @foreach(Session::get('topCart') as $product)
+                                <li>
+                                    <a href="#" class="photo"><img src="{{asset('storage/products-images/'.$product["product_image"])}}" class="cart-thumb" alt="" /></a>
+                                    <h6><a href="#">{{$product["product_name"]}} </a></h6>
+                                    <p>{{$product["qty"]}}x - <span class="price">${{$product["product_price"]}}</span></p>
+                                </li>
+                            @endforeach
+                        @endif
                         <li class="total">
                             <a href="{{ route('cart') }}" class="btn btn-default hvr-hover btn-cart">VIEW CART</a>
-                            <span class="float-right"><strong>Total</strong>: $180.00</span>
+                            <span class="float-right"><strong>Total</strong>: ${{Session::get('cart')->totalPrice}}</span>
                         </li>
                     </ul>
                 </li>
