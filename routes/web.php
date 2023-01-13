@@ -18,8 +18,8 @@ use \App\Http\Controllers\ProductsController;
 |
 */
 
-Route::view('/', 'client.home')->name('home');
-Route::view('/shop', 'client.shop')->name('shop');
+Route::get('/', [ClientController::class, 'home'])->name('home');
+Route::get('/shop', [ClientController::class, 'shop'])->name('shop');
 Route::view('/cart', 'client.cart')->name('cart');
 Route::view('/checkout', 'client.checkout')->name('checkout');
 Route::view('/register', 'client.register')->name('register');
@@ -27,12 +27,9 @@ Route::view('/signin', 'client.signin')->name('signin');
 
 Route::view('/admin', 'admin.home')->name('adminhome');
 Route::view('/admin/addCategory', 'admin.addCategory')->name('addcategory');
-/* Route::view('/admin/categories', 'admin.categories')->name('categories'); */
 Route::view('/admin/addSlider', 'admin.addSlider')->name('addslider');
 Route::view('/admin/sliders', 'admin.sliders')->name('sliders');
-//Route::view('/admin/addProduct', 'admin.addProduct')->name('addproduct');
 Route::view('/admin/products', 'admin.products')->name('products');
-/* Route::view('/addOrder', 'admin.addOrder')->name('addorder'); */
 Route::view('/admin/orders', 'admin.orders')->name('orders');
 
 // Categories controller
