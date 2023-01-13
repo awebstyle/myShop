@@ -9,12 +9,13 @@ use App\Models\Product;
 class ClientController extends Controller
 {
     public function home(){
-        $sliders = Slider::get();
-        $products = Product::get();
+        $sliders = Slider::where('status', 1)->get();
+        $products = Product::where('status', 1)->get();
         return view ('client.home')->with('sliders', $sliders)->with('products', $products);
     }
 
     public function shop(){
-        return view ('client.shop');
+        $products = Product::where('status', 1)->get();
+        return view ('client.shop')->with('products', $products);
     }
 }

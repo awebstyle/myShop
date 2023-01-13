@@ -15,7 +15,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <h1 class="m-b-20"><strong>Welcome To <br> Freshshop</strong></h1>
-                                <p class="m-b-40">{{ $slider->description1 }} <br> {{ $slider->description2 }}</p>
+                                <p class="m-b-40">{{$slider->description1}}<br> {{$slider->description2}}</p>
                                 <p><a class="btn hvr-hover" href="{{ route('shop') }}">Shop New</a></p>
                             </div>
                         </div>
