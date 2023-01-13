@@ -57,12 +57,22 @@
               @endif
               <!-- /.card-header -->
               <!-- form start -->
-              <form action="{{route('savecategory')}} " method="POST">
+              <form action="{{route('savecategory')}} " method="POST" enctype="multipart/form-data">
                 @csrf  {{-- attn, si oubli, on a un expired token --}}
                 <div class="card-body">
                   <div class="form-group">
                     <label for="exampleInputEmail1">Category name</label>
                     <input type="text" name="category_name" class="form-control" id="exampleInputEmail1" placeholder="Enter category" required>
+                  </div>
+                  <label for="image">Category image</label>
+                  <div class="input-group">
+                    <div class="custom-file">
+                      <input type="file" required name="image" class="custom-file-input" id="image">
+                      <label class="custom-file-label" for="image">Choose file</label>
+                    </div>
+                    <div class="input-group-append">
+                      <span class="input-group-text">Upload</span>
+                    </div>
                   </div>
                 </div>
                 <!-- /.card-body -->

@@ -45,13 +45,23 @@
               @endif
               <!-- /.card-header -->
               <!-- form start -->
-              <form action="{{route('updatecategory', [$category->id])}} " method="POST">
+              <form action="{{route('updatecategory', [$category->id])}} " method="POST" enctype="multipart/form-data">
                 @csrf  {{-- attn, si oubli, on a un expired token --}}
                 @method("PUT")
                 <div class="card-body">
                   <div class="form-group">
                     <label for="exampleInputEmail1">Category name</label>
                     <input type="text" name="category_name" class="form-control" id="exampleInputEmail1" value="{{$category->category_name}}" required>
+                  </div>
+                  <label for="exampleInputFile">Slider image</label>
+                  <div class="input-group">
+                    <div class="custom-file">
+                      <input type="file" name="image" class="custom-file-input" id="exampleInputFile">
+                      <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                    </div>
+                    <div class="input-group-append">
+                      <span class="input-group-text">Upload</span>
+                    </div>
                   </div>
                 </div>
                 <!-- /.card-body -->
