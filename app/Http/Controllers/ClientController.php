@@ -43,4 +43,23 @@ class ClientController extends Controller
 
         return back();
     }
+
+    public function removeproduct($id){
+        $oldCart = Session::get('cart');
+        $cart = new Cart($oldCart);
+        $cart->removeItem($id);
+
+        Session::put('cart', $cart);
+        Session::put('topCart', $cart->items);
+
+        return back();
+    }
+
+    public function checkout(){
+        if(Session::has('client')){
+            return view('client.checkout');
+        }
+        else return redirect ('/signin');
+        
+    }
 }

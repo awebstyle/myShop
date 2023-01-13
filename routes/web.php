@@ -21,9 +21,11 @@ use \App\Http\Controllers\ProductsController;
 Route::get('/', [ClientController::class, 'home'])->name('home');
 Route::get('/shop', [ClientController::class, 'shop'])->name('shop');
 Route::get('/addToCart/{id}', [ClientController::class, 'addToCart'])->name('addtocart');
-Route::put('/cart/{id}', [ClientController::class, 'updateQty'])->name('updateqty');
+Route::put('/cart/updateqty/{id}', [ClientController::class, 'updateQty'])->name('updateqty');
+Route::get('/cart/removeproduct/{id}', [ClientController::class, 'removeProduct'])->name('removeproduct');
 Route::view('/cart', 'client.cart')->name('cart');
-Route::view('/checkout', 'client.checkout')->name('checkout');
+Route::get('/checkout', [ClientController::class, 'checkout'])->name('checkout');
+
 Route::view('/register', 'client.register')->name('register');
 Route::view('/signin', 'client.signin')->name('signin');
 

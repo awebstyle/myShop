@@ -69,7 +69,7 @@
                                                 </td>
 
                                                 <td class="remove-pr">
-                                                    <a href="#">
+                                                    <a href="{{route('removeproduct', [$product["product_id"]])}}">
                                                 <i class="fas fa-times"></i>
                                             </a>
                                                 </td>
@@ -129,7 +129,7 @@
                         <hr>
                         <div class="d-flex gr-total">
                             <h5>Grand Total</h5>
-                            <div class="ml-auto h5"> $ {{Session::get('cart')->totalPrice}} </div>
+                            <div class="ml-auto h5"> $ {{Session::get('cart') ? Session::get('cart')->totalPrice : 0}} </div>
                         </div>
                         <hr> </div>
                 </div>
