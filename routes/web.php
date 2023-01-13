@@ -21,6 +21,7 @@ use \App\Http\Controllers\ProductsController;
 Route::get('/', [ClientController::class, 'home'])->name('home');
 Route::get('/shop', [ClientController::class, 'shop'])->name('shop');
 Route::get('/addToCart/{id}', [ClientController::class, 'addToCart'])->name('addtocart');
+Route::put('/cart/{id}', [ClientController::class, 'updateQty'])->name('updateqty');
 Route::view('/cart', 'client.cart')->name('cart');
 Route::view('/checkout', 'client.checkout')->name('checkout');
 Route::view('/register', 'client.register')->name('register');

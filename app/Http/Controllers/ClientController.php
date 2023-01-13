@@ -33,4 +33,14 @@ class ClientController extends Controller
 
         return back();
     }
+
+    public function updateQty(Request $request, $id){
+        $oldCart = Session::has('cart') ? Session::get('cart') : null;
+        $cart = new Cart($oldCart);
+        $cart->updateQty($id, $request->qty);
+        Session::put('cart', $cart);
+        Session::put('topCart', $cart->items);
+
+        return back();
+    }
 }

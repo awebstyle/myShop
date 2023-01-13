@@ -44,7 +44,7 @@ use Illuminate\Database\Eloquent\Model;
 
         }
 
-        /* public function updateQty($id, $qty){
+        public function updateQty($id, $qty){
             $this->totalQty -= $this->items[$id]['qty'];
             $this->totalPrice -= $this->items[$id]['product_price'] * $this->items[$id]['qty'];
             $this->items[$id]['qty'] = $qty;
@@ -53,7 +53,7 @@ use Illuminate\Database\Eloquent\Model;
 
         }
 
-        public function removeItem($id){
+        /* public function removeItem($id){
             $this->totalQty -= $this->items[$id]['qty'];
             $this->totalPrice -= $this->items[$id]['product_price'] * $this->items[$id]['qty'];
             unset($this->items[$id]);
