@@ -61,32 +61,26 @@
             <div class="row">
                 <div class="col-sm-6 col-lg-6 mb-3 offset-sm-3 offset-lg-3">
                     <div class="Account-address">
-                        <div class="title-left">
+                        <div class="title-left d-flex justify-content-between">
+                            @if(Session::has('error'))
+                                <div class="alert alert-danger">
+                                    {{ Session::get('error') }}
+                                </div>
+                            @endif
                             <h3>Sign in</h3>
-                        </div>
-                        <form class="needs-validation" >
-                            <!-- <div class="row">
-                                <div class="col-md-6 mb-3">
-                                    <label for="firstName">First name *</label>
-                                    <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
-                                    <div class="invalid-feedback"> Valid first name is required. </div>
-                                </div>
-                                <div class="col-md-6 mb-3">
-                                    <label for="lastName">Last name *</label>
-                                    <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
-                                    <div class="invalid-feedback"> Valid last name is required. </div>
-                                </div>
-                            </div> -->
-
+                            <p>No account ? &nbsp &nbsp<a class="text-primary" href="{{ route('register') }}">Register</a></p> 
+                        </div> 
+                        <form class="needs-validation" method="POST" action={{ route('accessaccount')}}>
+                            @csrf
                             <div class="mb-3">
                                 <label for="email">Email Address *</label>
-                                <input type="email" class="form-control" id="email" placeholder="" required>
+                                <input type="email" class="form-control" name="email" id="email" placeholder="" required>
                                 <div class="invalid-feedback"> Please enter a valid email address for shipping updates. </div>
                             </div>
 
                             <div class="mb-3">
                                 <label for="email">Password *</label>
-                                <input type="password" class="form-control" id="email" placeholder="" required>
+                                <input type="password" class="form-control" name="password" id="password" placeholder="" required>
                                 <div class="invalid-feedback"> Please enter a valid email address for shipping updates. </div>
                             </div>
 

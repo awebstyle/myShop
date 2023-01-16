@@ -16,7 +16,11 @@
                     </div>
                     <div class="our-link">
                         <ul>
-                            <li><a href="#"><i class="fa fa-user s_color"></i> My Account</a></li>
+                            @if(Session::has('client'))
+                                <li><a href="{{route('logout')}}"><i class="fa fa-user s_color"></i> Logout</a></li>
+                            @else
+                                <li><a href="{{route('signin')}}"><i class="fa fa-user s_color"></i> Login</a></li>
+                            @endif
                             <li><a href="#"><i class="fas fa-location-arrow"></i> Our location</a></li>
                             <li><a href="#"><i class="fas fa-headset"></i> Contact Us</a></li>
                         </ul>

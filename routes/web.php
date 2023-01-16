@@ -21,13 +21,17 @@ use \App\Http\Controllers\ProductsController;
 Route::get('/', [ClientController::class, 'home'])->name('home');
 Route::get('/shop', [ClientController::class, 'shop'])->name('shop');
 Route::get('/addToCart/{id}', [ClientController::class, 'addToCart'])->name('addtocart');
-Route::put('/cart/updateqty/{id}', [ClientController::class, 'updateQty'])->name('updateqty');
-Route::get('/cart/removeproduct/{id}', [ClientController::class, 'removeProduct'])->name('removeproduct');
+Route::put('/cart/updateQty/{id}', [ClientController::class, 'updateQty'])->name('updateqty');
+Route::get('/cart/removeProduct/{id}', [ClientController::class, 'removeProduct'])->name('removeproduct');
 Route::view('/cart', 'client.cart')->name('cart');
 Route::get('/checkout', [ClientController::class, 'checkout'])->name('checkout');
+Route::post('/createAccount',[ClientController::class, 'createAccount'])->name('createaccount');
+Route::post('/accessAccount', [ClientController::class, 'accessAccount'])->name('accessaccount');
+Route::get('/logout', [ClientController::class, 'logout'])->name('logout');
 
 Route::view('/register', 'client.register')->name('register');
 Route::view('/signin', 'client.signin')->name('signin');
+
 
 Route::view('/admin', 'admin.home')->name('adminhome');
 Route::view('/admin/addCategory', 'admin.addCategory')->name('addcategory');
