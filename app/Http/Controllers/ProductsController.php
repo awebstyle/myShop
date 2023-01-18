@@ -22,6 +22,7 @@ class ProductsController extends Controller
             'product_name' => 'required',
             'product_price' => 'required',
             'product_category' => 'required',
+            'product_description' => 'required',
             'product_image' => 'image|nullable|max:1999'
         ]);
 
@@ -37,6 +38,7 @@ class ProductsController extends Controller
 
         $product = new Product();
         $product->product_name = $request->input('product_name');
+        $product->product_description = $request->input('product_description');
         $product->product_price = $request->input('product_price');
         $product->product_category = $request->input('product_category');
         $product->product_image = $fileNameToStore;

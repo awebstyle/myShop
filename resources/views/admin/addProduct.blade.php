@@ -66,6 +66,10 @@
                     <input type="text" required name="product_name" class="form-control" id="exampleInputEmail1" placeholder="Enter product name">
                   </div>
                   <div class="form-group">
+                    <label for="description">Product description</label>
+                    <input type="text" required name="product_description" class="form-control" id="description" placeholder="Enter product name">
+                  </div>
+                  <div class="form-group">
                     <label for="exampleInputEmail1">Product price</label>
                     <input type="number" required name="product_price" class="form-control" id="exampleInputEmail1" placeholder="Enter product price" min="1">
                   </div>
