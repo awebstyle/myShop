@@ -5,6 +5,7 @@ use \App\Http\Controllers\ClientController;
 use \App\Http\Controllers\CategoriesController;
 use \App\Http\Controllers\SlidersController;
 use \App\Http\Controllers\ProductsController;
+use \App\Http\Controllers\OrdersController;
 
 
 /*
@@ -39,7 +40,12 @@ Route::view('/admin/addCategory', 'admin.addCategory')->name('addcategory');
 Route::view('/admin/addSlider', 'admin.addSlider')->name('addslider');
 Route::view('/admin/sliders', 'admin.sliders')->name('sliders');
 Route::view('/admin/products', 'admin.products')->name('products');
-Route::view('/admin/orders', 'admin.orders')->name('orders');
+//Route::view('/admin/orders', 'admin.orders')->name('orders');
+
+// Orders controller
+Route::get('/admin/orders', [OrdersController::class, 'showOrders'])->name('orders');
+Route::get('/admin/seeOrder/{id}', [OrdersController::class, 'seeOrder'])->name('seeorder');
+
 
 // Categories controller
 Route::post('/admin/saveCategory', [CategoriesController::class, 'saveCategory'])->name('savecategory');

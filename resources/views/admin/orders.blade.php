@@ -51,30 +51,24 @@
                   </tr>
                   </thead>
                   <tbody>
-                  <tr>
-                    <td>2020</td>
-                    <td>Win 95+</td>
-                    <td> 4</td>
-                    <td>
-                      <a href="#" class="btn btn-primary"><i class="nav-icon fas fa-eye"></i></a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>2020</td>
-                    <td>Win 95+</td>
-                    <td>5</td>
-                    <td>
-                      <a href="#" class="btn btn-primary"><i class="nav-icon fas fa-eye"></i></a>
-                    </td>
-                  </tr>
+                    @foreach($orders as $order)
+                    <tr>
+                      <td>{{$order->created_at}}</td>
+                      <td>{{$order->names}}</td>
+                      <td> 
+                        @foreach($order->cart->items as $item)  
+                          {{$item['qty']." * ". $item['product_name']}}
+                          <br/>
+                        @endforeach
+                      </td>
+                      <td>
+                        <a href="{{route('seeorder', [$order->id])}}" target="_blank" class="btn btn-primary"><i class="nav-icon fas fa-eye"></i></a>
+                      </td>
+                    </tr>
+                  @endforeach
                   </tbody>
                   <tfoot>
-                  <tr>
-                    <th>Date</th>
-                    <th>Client Names</th>
-                    <th>Orders</th>
-                    <th>Actions</th>
-                  </tr>
+                  
                   </tfoot>
                 </table>
               </div>
