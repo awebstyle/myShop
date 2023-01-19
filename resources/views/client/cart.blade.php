@@ -27,6 +27,11 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="table-main table-responsive">
+                        @if(Session::has('status'))
+                            <div class="alert alert-success">
+                                {{Session::get('status')}}
+                            </div>
+                        @endif
                         <table class="table">
                             <thead>
                                 <tr>

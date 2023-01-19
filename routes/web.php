@@ -28,6 +28,7 @@ Route::get('/checkout', [ClientController::class, 'checkout'])->name('checkout')
 Route::post('/createAccount',[ClientController::class, 'createAccount'])->name('createaccount');
 Route::post('/accessAccount', [ClientController::class, 'accessAccount'])->name('accessaccount');
 Route::get('/logout', [ClientController::class, 'logout'])->name('logout');
+Route::post('/payOrder', [ClientController::class, 'payOrder'])->name('payorder');
 
 Route::view('/register', 'client.register')->name('register');
 Route::view('/signin', 'client.signin')->name('signin');

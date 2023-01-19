@@ -8,6 +8,8 @@ use App\Models\Product;
 use App\Models\Category;
 use App\Models\Cart;
 use App\Models\Client;
+use App\Models\Order;
+
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Hash;
 
@@ -101,4 +103,21 @@ class ClientController extends Controller
         Session::forget('client');
         return back();
     }
+
+    public function payOrder(Request $request){
+        $oldCart = Session::has('cart') ? Session::get('cart') : null;
+        $cart = new Cart($oldCart);
+        
+        $order = new Order();
+        
+        $order->names = $request->input('firstName')." ".$request->input('lastName');
+        $order->address = $request->input('address');
+        
+        $order->cart = serialize($cart);
+        $order->save();
+        
+        Session::forget('cart');
+        Session::forget('topCart');
+        return redirect('/cart')->with('status', 'Votre commande a été enregistrée');
+     }
 }
