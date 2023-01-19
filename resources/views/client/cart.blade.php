@@ -110,7 +110,7 @@
                 <div class="col-lg-4 col-sm-12">
                     <div class="order-box">
                         <h3>Order summary</h3>
-                        <div class="d-flex">
+                        {{-- <div class="d-flex">
                             <h4>Sub Total</h4>
                             <div class="ml-auto font-weight-bold"> $ 130 </div>
                         </div>
@@ -131,9 +131,9 @@
                             <h4>Shipping Cost</h4>
                             <div class="ml-auto font-weight-bold"> Free </div>
                         </div>
-                        <hr>
+                        <hr> --}}
                         <div class="d-flex gr-total">
-                            <h5>Grand Total</h5>
+                            <h5>Total</h5>
                             <div class="ml-auto h5"> $ {{Session::get('cart') ? Session::get('cart')->totalPrice : 0}} </div>
                         </div>
                         <hr> </div>

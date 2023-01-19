@@ -28,10 +28,9 @@
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
 					<div class="login-box">
-						<select id="basic" class="selectpicker show-tick form-control" data-placeholder="Sign In">
-							<option>Register Here</option>
-							<option>Sign In</option>
-						</select>
+                        <div class="form-control bg-light text-center">
+                            <a href="{{route('adminhome')}}">Admin</a>
+                        </div>
 					</div>
                     <div class="text-slid-box">
                         <div id="offer-box" class="carouselTicker">
